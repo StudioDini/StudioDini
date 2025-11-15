@@ -1,9 +1,7 @@
 {
   "buildCommand": "npm run build",
-  "outputDirectory": ".",
-  "devCommand": "npm run dev",
+  "outputDirectory": "dist",
   "installCommand": "npm install",
-  "framework": null,
   "rewrites": [
     {
       "source": "/(.*)",
