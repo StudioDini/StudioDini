@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import heroImage from "figma:asset/ae3199ad9128cc81c66aef2e4ca7b9f9d42467c3.png";
 
 const HomePage = () => {
   const portfolioProjects = [
@@ -39,18 +40,28 @@ const HomePage = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5" />
+        {/* Background Image with Black & White Filter */}
+        <div className="absolute inset-0">
+          <img
+            src={heroImage}
+            alt="Studio Dini Hero"
+            className="w-full h-full object-cover grayscale"
+          />
+          {/* Dark Overlay for better text readability */}
+          <div className="absolute inset-0 bg-black/60" />
+        </div>
+        
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center animate-fade-in">
-            <h1 className="mb-6 text-balance">
+            <h1 className="mb-6 text-balance text-white">
               Toda marca começa de um <span className="text-primary">sonho</span>
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto">
               Transformamos ideias em identidades visuais marcantes e experiências memoráveis.
             </p>
             <Link
               to="/contato"
-              className="inline-block px-8 py-3 text-lg bg-primary text-primary-foreground rounded-lg hover:bg-accent transition-colors"
+              className="inline-block px-8 py-3 text-lg bg-primary text-primary-foreground rounded-lg hover:bg-accent transition-colors shadow-lg hover:shadow-xl hover:scale-105"
             >
               Solicitar Orçamento
             </Link>
