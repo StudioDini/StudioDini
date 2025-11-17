@@ -1,7 +1,7 @@
 
-  # Import GitHub Repository
+  # Studio Dini
 
-  This is a code bundle for Import GitHub Repository. The original project is available at https://www.figma.com/design/W1FLfpNcrAiofggwpBtAgf/Import-GitHub-Repository.
+  This is a code bundle for Studio Dini. The original project is available at https://www.figma.com/design/W1FLfpNcrAiofggwpBtAgf/Studio-Dini.
 
   ## Running the code
 
