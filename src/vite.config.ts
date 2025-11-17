@@ -7,9 +7,4 @@ export default defineConfig({
     outDir: 'dist',
     emptyOutDir: true,
   },
-  resolve: {
-    alias: {
-      '@': '/src',
-    },
-  },
 });
