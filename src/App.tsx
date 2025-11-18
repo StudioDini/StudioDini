@@ -1,47 +1,56 @@
-export default function App() {
+import { useState, useEffect } from "react";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import HomePage from "./components/HomePage";
+import AboutPage from "./components/AboutPage";
+import ServicesPage from "./components/ServicesPage";
+import PortfolioPage from "./components/PortfolioPage";
+import ContactPage from "./components/ContactPage";
+import NotFoundPage from "./components/NotFoundPage";
+
+const App = () => {
+  const [currentPage, setCurrentPage] = useState("home");
+
+  // Handle initial hash and hash changes
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace("#", "") || "home";
+      setCurrentPage(hash);
+    };
+
+    // Set initial page from hash
+    handleHashChange();
+
+    // Listen for hash changes
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
+
+  // Render the appropriate page based on currentPage
+  const renderPage = () => {
+    switch (currentPage) {
+      case "home":
+        return <HomePage />;
+      case "sobre":
+        return <AboutPage />;
+      case "servicos":
+        return <ServicesPage />;
+      case "portfolio":
+        return <PortfolioPage />;
+      case "contato":
+        return <ContactPage />;
+      default:
+        return <NotFoundPage />;
+    }
+  };
+
   return (
-    <div style={{
-      minHeight: '100vh',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      fontFamily: 'system-ui, -apple-system, sans-serif',
-      padding: '20px'
-    }}>
-      <div style={{
-        background: 'white',
-        padding: '60px 80px',
-        borderRadius: '20px',
-        boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
-        textAlign: 'center',
-        maxWidth: '600px'
-      }}>
-        <h1 style={{
-          color: '#E9BB38',
-          fontSize: '56px',
-          margin: '0 0 20px 0',
-          fontWeight: '700'
-        }}>
-          Studio Dini
-        </h1>
-        <div style={{
-          fontSize: '20px',
-          color: '#333',
-          marginBottom: '30px'
-        }}>
-          ✅ Funcionando!
-        </div>
-        <p style={{
-          fontSize: '16px',
-          color: '#666',
-          lineHeight: '1.6',
-          margin: '0'
-        }}>
-          Se você está vendo esta mensagem, significa que o React está renderizando corretamente no Figma Make!
-        </p>
-      </div>
+    <div className="flex flex-col min-h-screen">
+      <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      <main className="flex-1 pt-20">{renderPage()}</main>
+      <Footer />
     </div>
   );
-}
+};
+
+export default App;

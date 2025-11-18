@@ -1,11 +1,11 @@
 import { Home } from "lucide-react";
 
-const handleNavigation = (page: string) => {
-  window.location.hash = page;
-  window.scrollTo({ top: 0, behavior: "smooth" });
-};
-
 const NotFoundPage = () => {
+  const handleGoHome = () => {
+    window.location.hash = "home";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center px-4">
       <div className="text-center">
@@ -17,8 +17,8 @@ const NotFoundPage = () => {
           Desculpe, a página que você está procurando não existe ou foi movida.
         </p>
         <button
-          onClick={() => handleNavigation("home")}
-          className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-accent transition-colors cursor-pointer"
+          onClick={handleGoHome}
+          className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-accent transition-colors"
         >
           <Home size={20} />
           Voltar para Home

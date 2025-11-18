@@ -32,9 +32,9 @@ const Navbar = ({ currentPage, setCurrentPage }: NavbarProps) => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <button 
-            onClick={() => handleNavigation("home")} 
-            className="flex items-center hover:opacity-80 transition-opacity cursor-pointer"
+          <button
+            onClick={() => handleNavigation("home")}
+            className="flex items-center hover:opacity-80 transition-opacity"
           >
             <StudioDiniLogo className="h-12 w-auto" />
           </button>
@@ -54,7 +54,7 @@ const Navbar = ({ currentPage, setCurrentPage }: NavbarProps) => {
             ))}
             <button
               onClick={() => handleNavigation("contato")}
-              className="ml-4 px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-accent transition-colors"
+              className="ml-4 px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-accent transition-colors inline-block"
             >
               Solicitar Orçamento
             </button>
@@ -87,7 +87,7 @@ const Navbar = ({ currentPage, setCurrentPage }: NavbarProps) => {
               ))}
               <button
                 onClick={() => handleNavigation("contato")}
-                className="w-full px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-accent transition-colors text-center"
+                className="w-full px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-accent transition-colors inline-block text-center"
               >
                 Solicitar Orçamento
               </button>

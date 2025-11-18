@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { 
   Palette, 
   Box, 
@@ -10,11 +11,6 @@ import {
   Video,
   PenTool
 } from "lucide-react";
-
-const handleNavigation = (page: string) => {
-  window.location.hash = page;
-  window.scrollTo({ top: 0, behavior: "smooth" });
-};
 
 const ServicesPage = () => {
   const services = [
@@ -126,12 +122,12 @@ const ServicesPage = () => {
             <p className="text-xl text-muted-foreground mb-8">
               Entre em contato e vamos conversar sobre o seu projeto
             </p>
-            <button
-              onClick={() => handleNavigation("contato")}
-              className="inline-block px-8 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-accent transition-colors cursor-pointer"
+            <Link
+              to="/contato"
+              className="inline-block px-8 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-accent transition-colors"
             >
               Solicitar Orçamento
-            </button>
+            </Link>
           </div>
         </div>
       </section>

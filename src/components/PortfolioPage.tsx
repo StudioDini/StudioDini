@@ -1,10 +1,6 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { X } from "lucide-react";
-
-const handleNavigation = (page: string) => {
-  window.location.hash = page;
-  window.scrollTo({ top: 0, behavior: "smooth" });
-};
 
 const PortfolioPage = () => {
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
@@ -171,12 +167,12 @@ const PortfolioPage = () => {
             <p className="text-xl text-muted-foreground mb-8">
               Vamos criar algo incrível juntos
             </p>
-            <button
-              onClick={() => handleNavigation("contato")}
-              className="inline-block px-8 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-accent transition-colors cursor-pointer"
+            <Link
+              to="/contato"
+              className="inline-block px-8 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-accent transition-colors"
             >
               Iniciar um Projeto
-            </button>
+            </Link>
           </div>
         </div>
       </section>
