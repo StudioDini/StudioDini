@@ -1,41 +1,108 @@
-# Studio Dini - Website
+# Studio Dini - Website 🎨
 
 Site oficial do Studio Dini, especializado em branding, identidade visual, modelagem 3D, UX/UI e design gráfico.
 
 **Slogan:** Toda marca começa de um sonho
 
-## 🚀 Como rodar o projeto
+[![Deploy to GitHub Pages](https://github.com/SEU_USUARIO/StudioDini/actions/workflows/deploy.yml/badge.svg)](https://github.com/SEU_USUARIO/StudioDini/actions/workflows/deploy.yml)
 
-### Desenvolvimento
+## 🌐 Site Publicado
+
+**URL:** [https://SEU_USUARIO.github.io/StudioDini/](https://SEU_USUARIO.github.io/StudioDini/)
+
+---
+
+## 🚀 Deploy Rápido (GitHub Pages)
+
+### ✅ Projeto Já Configurado!
+
+Todos os arquivos estão prontos para deploy. Basta:
 
 ```bash
+# 1. Commit e push
+git add .
+git commit -m "Deploy para GitHub Pages"
+git push origin main
+
+# 2. Configurar GitHub Pages
+# Settings → Pages → Source: "GitHub Actions"
+
+# 3. Aguardar 2-3 minutos e acessar
+# https://SEU_USUARIO.github.io/StudioDini/
+```
+
+📖 **[Guia Completo de Deploy](LEIA_PRIMEIRO.md)**
+
+---
+
+## 💻 Desenvolvimento Local
+
+### Instalar e Rodar
+
+```bash
+# Instalar dependências
 npm install
+
+# Rodar em modo desenvolvimento
 npm run dev
-```
+# Acesse: http://localhost:5173
 
-### Build para Produção
-
-```bash
+# Build de produção
 npm run build
+
+# Preview da build
+npm run preview
+# Acesse: http://localhost:4173
 ```
 
-### Preview da Build
+---
+
+## 📦 Deploy (Outras Plataformas)
+
+### Vercel
 
 ```bash
-npm run preview
+# Remover base do vite.config.ts (linha 6)
+# base: '/StudioDini/', ← comentar ou remover
+
+# Depois fazer deploy no Vercel normalmente
 ```
 
-## 📦 Deploy no Vercel
+**Configurações no Vercel:**
+- Framework Preset: `Vite`
+- Build Command: `npm run build`
+- Output Directory: `dist`
 
-### Configurações necessárias no Vercel Dashboard:
+### Netlify
 
-1. **Framework Preset:** `Vite`
-2. **Build Command:** `npm run build`
-3. **Output Directory:** `dist`
-4. **Install Command:** `npm install`
+```bash
+# Remover base do vite.config.ts (linha 6)
+# base: '/StudioDini/', ← comentar ou remover
 
-### Variáveis de Ambiente
-Não são necessárias variáveis de ambiente para este projeto.
+# Criar arquivo netlify.toml na raiz:
+```
+
+```toml
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+```
+
+---
+
+## 🎯 Comandos Disponíveis
+
+| Comando | Descrição |
+|---------|-----------|
+| `npm run dev` | Inicia servidor de desenvolvimento |
+| `npm run build` | Gera build de produção na pasta `dist` |
+| `npm run preview` | Preview da build de produção |
+| `npm run deploy` | Build + instruções de deploy |
 
 ## 🛠️ Tecnologias
 

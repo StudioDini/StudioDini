@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import HomePage from "./components/HomePage";
@@ -9,7 +9,7 @@ import ContactPage from "./components/ContactPage";
 import NotFoundPage from "./components/NotFoundPage";
 
 const App = () => (
-  <BrowserRouter>
+  <HashRouter>
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <main className="flex-1 pt-20">
@@ -24,7 +24,7 @@ const App = () => (
       </main>
       <Footer />
     </div>
-  </BrowserRouter>
+  </HashRouter>
 );
 
 export default App;
