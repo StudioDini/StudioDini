@@ -1,5 +1,9 @@
-import { Link } from "react-router-dom";
 import { Heart, Target, Sparkles } from "lucide-react";
+
+const handleNavigation = (page: string) => {
+  window.location.hash = page;
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
 
 const AboutPage = () => {
   const values = [
@@ -95,18 +99,18 @@ const AboutPage = () => {
               Estamos prontos para ouvir o seu sonho e transformá-lo em realidade
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/contato"
-                className="px-8 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-accent transition-colors inline-block text-center"
+              <button
+                onClick={() => handleNavigation("contato")}
+                className="px-8 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-accent transition-colors text-center cursor-pointer"
               >
                 Solicitar Orçamento
-              </Link>
-              <Link
-                to="/portfolio"
-                className="px-8 py-3 border border-primary rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors inline-block text-center"
+              </button>
+              <button
+                onClick={() => handleNavigation("portfolio")}
+                className="px-8 py-3 border border-primary rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors text-center cursor-pointer"
               >
                 Ver Portfólio
-              </Link>
+              </button>
             </div>
           </div>
         </div>

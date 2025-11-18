@@ -1,9 +1,13 @@
-import { Link } from "react-router-dom";
 import { Instagram, Linkedin, MessageCircle } from "lucide-react";
 import StudioDiniLogo from "./StudioDiniLogo";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+
+  const handleNavigation = (page: string) => {
+    window.location.hash = page;
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <footer className="bg-secondary border-t border-border">
@@ -24,29 +28,44 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Navegação</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">
+                <button 
+                  onClick={() => handleNavigation("home")}
+                  className="text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+                >
                   Home
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/sobre" className="text-muted-foreground hover:text-primary transition-colors">
+                <button 
+                  onClick={() => handleNavigation("sobre")}
+                  className="text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+                >
                   Sobre
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/servicos" className="text-muted-foreground hover:text-primary transition-colors">
+                <button 
+                  onClick={() => handleNavigation("servicos")}
+                  className="text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+                >
                   Serviços
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/portfolio" className="text-muted-foreground hover:text-primary transition-colors">
+                <button 
+                  onClick={() => handleNavigation("portfolio")}
+                  className="text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+                >
                   Portfólio
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/contato" className="text-muted-foreground hover:text-primary transition-colors">
+                <button 
+                  onClick={() => handleNavigation("contato")}
+                  className="text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+                >
                   Contato
-                </Link>
+                </button>
               </li>
             </ul>
           </div>

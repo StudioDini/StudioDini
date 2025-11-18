@@ -1,30 +1,47 @@
-import { HashRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import HomePage from "./components/HomePage";
-import AboutPage from "./components/AboutPage";
-import ServicesPage from "./components/ServicesPage";
-import PortfolioPage from "./components/PortfolioPage";
-import ContactPage from "./components/ContactPage";
-import NotFoundPage from "./components/NotFoundPage";
-
-const App = () => (
-  <HashRouter>
-    <div className="flex flex-col min-h-screen">
-      <Navbar />
-      <main className="flex-1 pt-20">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/sobre" element={<AboutPage />} />
-          <Route path="/servicos" element={<ServicesPage />} />
-          <Route path="/portfolio" element={<PortfolioPage />} />
-          <Route path="/contato" element={<ContactPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </main>
-      <Footer />
+export default function App() {
+  return (
+    <div style={{
+      minHeight: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      fontFamily: 'system-ui, -apple-system, sans-serif',
+      padding: '20px'
+    }}>
+      <div style={{
+        background: 'white',
+        padding: '60px 80px',
+        borderRadius: '20px',
+        boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
+        textAlign: 'center',
+        maxWidth: '600px'
+      }}>
+        <h1 style={{
+          color: '#E9BB38',
+          fontSize: '56px',
+          margin: '0 0 20px 0',
+          fontWeight: '700'
+        }}>
+          Studio Dini
+        </h1>
+        <div style={{
+          fontSize: '20px',
+          color: '#333',
+          marginBottom: '30px'
+        }}>
+          ✅ Funcionando!
+        </div>
+        <p style={{
+          fontSize: '16px',
+          color: '#666',
+          lineHeight: '1.6',
+          margin: '0'
+        }}>
+          Se você está vendo esta mensagem, significa que o React está renderizando corretamente no Figma Make!
+        </p>
+      </div>
     </div>
-  </HashRouter>
-);
-
-export default App;
+  );
+}

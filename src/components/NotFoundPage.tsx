@@ -1,5 +1,9 @@
-import { Link } from "react-router-dom";
 import { Home } from "lucide-react";
+
+const handleNavigation = (page: string) => {
+  window.location.hash = page;
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
 
 const NotFoundPage = () => {
   return (
@@ -12,13 +16,13 @@ const NotFoundPage = () => {
         <p className="text-muted-foreground mb-8 max-w-md mx-auto">
           Desculpe, a página que você está procurando não existe ou foi movida.
         </p>
-        <Link
-          to="/"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-accent transition-colors"
+        <button
+          onClick={() => handleNavigation("home")}
+          className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-accent transition-colors cursor-pointer"
         >
           <Home size={20} />
           Voltar para Home
-        </Link>
+        </button>
       </div>
     </div>
   );

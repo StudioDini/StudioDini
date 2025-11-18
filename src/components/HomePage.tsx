@@ -1,6 +1,10 @@
-import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+
+const handleNavigation = (page: string) => {
+  window.location.hash = page;
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
 
 const HomePage = () => {
   const portfolioProjects = [
@@ -59,12 +63,12 @@ const HomePage = () => {
             <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto">
               Transformamos ideias em identidades visuais marcantes e experiências memoráveis.
             </p>
-            <Link
-              to="/contato"
-              className="inline-block px-8 py-3 text-lg bg-primary text-primary-foreground rounded-lg hover:bg-accent transition-colors shadow-lg hover:shadow-xl hover:scale-105"
+            <button
+              onClick={() => handleNavigation("contato")}
+              className="inline-block px-8 py-3 text-lg bg-primary text-primary-foreground rounded-lg hover:bg-accent transition-colors shadow-lg hover:shadow-xl hover:scale-105 cursor-pointer"
             >
               Solicitar Orçamento
-            </Link>
+            </button>
           </div>
         </div>
       </section>
@@ -87,13 +91,13 @@ const HomePage = () => {
               ))}
             </div>
             <div className="mt-8">
-              <Link
-                to="/servicos"
-                className="inline-flex items-center gap-2 px-6 py-3 border border-primary rounded-lg hover:bg-primary hover:text-primary-foreground transition-all group"
+              <button
+                onClick={() => handleNavigation("servicos")}
+                className="inline-flex items-center gap-2 px-6 py-3 border border-primary rounded-lg hover:bg-primary hover:text-primary-foreground transition-all group cursor-pointer"
               >
                 Ver Todos os Serviços
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              </button>
             </div>
           </div>
         </div>
@@ -133,13 +137,13 @@ const HomePage = () => {
           </div>
 
           <div className="text-center mt-12">
-            <Link
-              to="/portfolio"
-              className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-accent transition-all shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 group"
+            <button
+              onClick={() => handleNavigation("portfolio")}
+              className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-accent transition-all shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 group cursor-pointer"
             >
               Ver Portfólio Completo
               <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
+            </button>
           </div>
         </div>
       </section>
@@ -156,12 +160,12 @@ const HomePage = () => {
             <p className="text-xl mb-8 text-primary-foreground/90">
               Vamos transformar o seu sonho em realidade
             </p>
-            <Link
-              to="/contato"
-              className="inline-block px-8 py-3 text-lg bg-secondary text-foreground rounded-lg hover:bg-background transition-all shadow-xl hover:shadow-2xl hover:scale-105"
+            <button
+              onClick={() => handleNavigation("contato")}
+              className="inline-block px-8 py-3 text-lg bg-secondary text-foreground rounded-lg hover:bg-background transition-all shadow-xl hover:shadow-2xl hover:scale-105 cursor-pointer"
             >
               Entre em Contato
-            </Link>
+            </button>
           </div>
         </div>
       </section>

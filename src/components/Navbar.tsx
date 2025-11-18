@@ -1,50 +1,63 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import StudioDiniLogo from "./StudioDiniLogo";
 
-const Navbar = () => {
+interface NavbarProps {
+  currentPage: string;
+  setCurrentPage: (page: string) => void;
+}
+
+const Navbar = ({ currentPage, setCurrentPage }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
 
   const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "Sobre", path: "/sobre" },
-    { name: "Serviços", path: "/servicos" },
-    { name: "Portfólio", path: "/portfolio" },
-    { name: "Contato", path: "/contato" },
+    { name: "Home", page: "home" },
+    { name: "Sobre", page: "sobre" },
+    { name: "Serviços", page: "servicos" },
+    { name: "Portfólio", page: "portfolio" },
+    { name: "Contato", page: "contato" },
   ];
 
-  const isActive = (path: string) => location.pathname === path;
+  const handleNavigation = (page: string) => {
+    setCurrentPage(page);
+    window.location.hash = page;
+    setIsOpen(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const isActive = (page: string) => currentPage === page;
 
   return (
     <nav className="fixed top-0 w-full bg-background/95 backdrop-blur-sm z-50 border-b border-border">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center hover:opacity-80 transition-opacity">
+          <button 
+            onClick={() => handleNavigation("home")} 
+            className="flex items-center hover:opacity-80 transition-opacity cursor-pointer"
+          >
             <StudioDiniLogo className="h-12 w-auto" />
-          </Link>
+          </button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
+              <button
+                key={link.page}
+                onClick={() => handleNavigation(link.page)}
                 className={`text-sm font-medium transition-colors hover:text-primary ${
-                  isActive(link.path) ? "text-primary" : "text-foreground"
+                  isActive(link.page) ? "text-primary" : "text-foreground"
                 }`}
               >
                 {link.name}
-              </Link>
+              </button>
             ))}
-            <Link
-              to="/contato"
-              className="ml-4 px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-accent transition-colors inline-block"
+            <button
+              onClick={() => handleNavigation("contato")}
+              className="ml-4 px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-accent transition-colors"
             >
               Solicitar Orçamento
-            </Link>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -62,24 +75,22 @@ const Navbar = () => {
           <div className="md:hidden py-4 animate-fade-in">
             <div className="flex flex-col space-y-4">
               {navLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  onClick={() => setIsOpen(false)}
-                  className={`text-sm font-medium transition-colors hover:text-primary ${
-                    isActive(link.path) ? "text-primary" : "text-foreground"
+                <button
+                  key={link.page}
+                  onClick={() => handleNavigation(link.page)}
+                  className={`text-sm font-medium transition-colors hover:text-primary text-left ${
+                    isActive(link.page) ? "text-primary" : "text-foreground"
                   }`}
                 >
                   {link.name}
-                </Link>
+                </button>
               ))}
-              <Link
-                to="/contato"
-                onClick={() => setIsOpen(false)}
-                className="w-full px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-accent transition-colors inline-block text-center"
+              <button
+                onClick={() => handleNavigation("contato")}
+                className="w-full px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-accent transition-colors text-center"
               >
                 Solicitar Orçamento
-              </Link>
+              </button>
             </div>
           </div>
         )}
