@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import heroImage from "figma:asset/ae3199ad9128cc81c66aef2e4ca7b9f9d42467c3.png";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 const HomePage = () => {
   const portfolioProjects = [
@@ -42,8 +42,8 @@ const HomePage = () => {
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
         {/* Background Image with Black & White Filter */}
         <div className="absolute inset-0">
-          <img
-            src={heroImage}
+          <ImageWithFallback
+            src="https://images.unsplash.com/photo-1730206562928-0efd62560435?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMGRlc2lnbiUyMHN0dWRpbyUyMHdvcmtzcGFjZXxlbnwxfHx8fDE3NjM0MTQzOTB8MA&ixlib=rb-4.1.0&q=80&w=1080"
             alt="Studio Dini Hero"
             className="w-full h-full object-cover grayscale"
           />
