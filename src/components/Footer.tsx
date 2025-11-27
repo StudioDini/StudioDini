@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { Instagram, Linkedin, MessageCircle } from "lucide-react";
 import StudioDiniLogo from "./StudioDiniLogo";
 
@@ -24,29 +23,29 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Navegação</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">
+                <a href="#/" className="text-muted-foreground hover:text-primary transition-colors">
                   Home
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/sobre" className="text-muted-foreground hover:text-primary transition-colors">
+                <a href="#/sobre" className="text-muted-foreground hover:text-primary transition-colors">
                   Sobre
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/servicos" className="text-muted-foreground hover:text-primary transition-colors">
+                <a href="#/servicos" className="text-muted-foreground hover:text-primary transition-colors">
                   Serviços
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/portfolio" className="text-muted-foreground hover:text-primary transition-colors">
+                <a href="#/portfolio" className="text-muted-foreground hover:text-primary transition-colors">
                   Portfólio
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/contato" className="text-muted-foreground hover:text-primary transition-colors">
+                <a href="#/contato" className="text-muted-foreground hover:text-primary transition-colors">
                   Contato
-                </Link>
+                </a>
               </li>
             </ul>
           </div>

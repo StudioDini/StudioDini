@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { X } from "lucide-react";
 
 const PortfolioPage = () => {
@@ -167,12 +166,12 @@ const PortfolioPage = () => {
             <p className="text-xl text-muted-foreground mb-8">
               Vamos criar algo incrível juntos
             </p>
-            <Link
-              to="/contato"
+            <a
+              href="#/contato"
               className="inline-block px-8 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-accent transition-colors"
             >
               Iniciar um Projeto
-            </Link>
+            </a>
           </div>
         </div>
       </section>

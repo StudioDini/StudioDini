@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { Home } from "lucide-react";
 
 const NotFoundPage = () => {
@@ -12,13 +11,13 @@ const NotFoundPage = () => {
         <p className="text-muted-foreground mb-8 max-w-md mx-auto">
           Desculpe, a página que você está procurando não existe ou foi movida.
         </p>
-        <Link
-          to="/"
+        <a
+          href="#/"
           className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-accent transition-colors"
         >
           <Home size={20} />
           Voltar para Home
-        </Link>
+        </a>
       </div>
     </div>
   );

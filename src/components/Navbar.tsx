@@ -1,11 +1,13 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import StudioDiniLogo from "./StudioDiniLogo";
 
-const Navbar = () => {
+interface NavbarProps {
+  currentPath: string;
+}
+
+const Navbar = ({ currentPath }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -15,36 +17,36 @@ const Navbar = () => {
     { name: "Contato", path: "/contato" },
   ];
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => currentPath === path;
 
   return (
     <nav className="fixed top-0 w-full bg-background/95 backdrop-blur-sm z-50 border-b border-border">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center hover:opacity-80 transition-opacity">
+          <a href="#/" className="flex items-center hover:opacity-80 transition-opacity">
             <StudioDiniLogo className="h-12 w-auto" />
-          </Link>
+          </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <Link
+              <a
                 key={link.path}
-                to={link.path}
+                href={`#${link.path}`}
                 className={`text-sm font-medium transition-colors hover:text-primary ${
                   isActive(link.path) ? "text-primary" : "text-foreground"
                 }`}
               >
                 {link.name}
-              </Link>
+              </a>
             ))}
-            <Link
-              to="/contato"
+            <a
+              href="#/contato"
               className="ml-4 px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-accent transition-colors inline-block"
             >
               Solicitar Orçamento
-            </Link>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -62,24 +64,24 @@ const Navbar = () => {
           <div className="md:hidden py-4 animate-fade-in">
             <div className="flex flex-col space-y-4">
               {navLinks.map((link) => (
-                <Link
+                <a
                   key={link.path}
-                  to={link.path}
+                  href={`#${link.path}`}
                   onClick={() => setIsOpen(false)}
                   className={`text-sm font-medium transition-colors hover:text-primary ${
                     isActive(link.path) ? "text-primary" : "text-foreground"
                   }`}
                 >
                   {link.name}
-                </Link>
+                </a>
               ))}
-              <Link
-                to="/contato"
+              <a
+                href="#/contato"
                 onClick={() => setIsOpen(false)}
                 className="w-full px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-accent transition-colors inline-block text-center"
               >
                 Solicitar Orçamento
-              </Link>
+              </a>
             </div>
           </div>
         )}

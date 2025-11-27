@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
@@ -59,12 +58,12 @@ const HomePage = () => {
             <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto">
               Transformamos ideias em identidades visuais marcantes e experiências memoráveis.
             </p>
-            <Link
-              to="/contato"
+            <a
+              href="#/contato"
               className="inline-block px-8 py-3 text-lg bg-primary text-primary-foreground rounded-lg hover:bg-accent transition-colors shadow-lg hover:shadow-xl hover:scale-105"
             >
               Solicitar Orçamento
-            </Link>
+            </a>
           </div>
         </div>
       </section>
@@ -87,13 +86,13 @@ const HomePage = () => {
               ))}
             </div>
             <div className="mt-8">
-              <Link
-                to="/servicos"
+              <a
+                href="#/servicos"
                 className="inline-flex items-center gap-2 px-6 py-3 border border-primary rounded-lg hover:bg-primary hover:text-primary-foreground transition-all group"
               >
                 Ver Todos os Serviços
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -133,13 +132,13 @@ const HomePage = () => {
           </div>
 
           <div className="text-center mt-12">
-            <Link
-              to="/portfolio"
+            <a
+              href="#/portfolio"
               className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-accent transition-all shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 group"
             >
               Ver Portfólio Completo
               <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
+            </a>
           </div>
         </div>
       </section>
@@ -156,12 +155,12 @@ const HomePage = () => {
             <p className="text-xl mb-8 text-primary-foreground/90">
               Vamos transformar o seu sonho em realidade
             </p>
-            <Link
-              to="/contato"
+            <a
+              href="#/contato"
               className="inline-block px-8 py-3 text-lg bg-secondary text-foreground rounded-lg hover:bg-background transition-all shadow-xl hover:shadow-2xl hover:scale-105"
             >
               Entre em Contato
-            </Link>
+            </a>
           </div>
         </div>
       </section>
