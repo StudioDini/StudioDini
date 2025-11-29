@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
+import heroImage from "figma:asset/2df3961c95b13f15af481caa7d025ea1168e717f.png";
 
 const HomePage = () => {
   const portfolioProjects = [
@@ -8,18 +8,21 @@ const HomePage = () => {
       title: "Centro Óptico Alphaville",
       category: "Branding",
       image: "https://images.unsplash.com/photo-1728470164693-95f5e7bade80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvcHRpY2FsJTIwc3RvcmUlMjBpbnRlcmlvcnxlbnwxfHx8fDE3NjMxMjU5NDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      link: "/portfolio/centro-optico-alphaville",
     },
     {
       id: 2,
       title: "Izabel Aleixo",
       category: "Identidade Visual",
       image: "https://images.unsplash.com/photo-1699061827014-5365ef3bbe5f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmYXNoaW9uJTIwYnJhbmQlMjBpZGVudGl0eXxlbnwxfHx8fDE3NjMxNzkxMzR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      link: "/portfolio/izabel-aleixo",
     },
     {
       id: 3,
-      title: "Macam Arquitetura",
+      title: "Macam Arquitetura e Interiores",
       category: "Branding",
       image: "https://images.unsplash.com/photo-1635182473361-1f72e7b4be83?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBhcmNoaXRlY3R1cmUlMjBzdHVkaW98ZW58MXx8fHwxNzYzMTc5MTM0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      link: "/portfolio/macam-arquitetura",
     },
   ];
 
@@ -39,12 +42,12 @@ const HomePage = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-        {/* Background Image with Black & White Filter */}
+        {/* Background Image */}
         <div className="absolute inset-0">
-          <ImageWithFallback
-            src="https://images.unsplash.com/photo-1730206562928-0efd62560435?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMGRlc2lnbiUyMHN0dWRpbyUyMHdvcmtzcGFjZXxlbnwxfHx8fDE3NjM0MTQzOTB8MA&ixlib=rb-4.1.0&q=80&w=1080"
+          <img
+            src={heroImage}
             alt="Studio Dini Hero"
-            className="w-full h-full object-cover grayscale"
+            className="w-full h-full object-cover"
           />
           {/* Dark Overlay for better text readability */}
           <div className="absolute inset-0 bg-black/60" />
@@ -110,9 +113,10 @@ const HomePage = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {portfolioProjects.map((project, index) => (
-              <div
+              <a
                 key={project.id}
-                className="overflow-hidden rounded-lg border border-border hover-lift cursor-pointer group bg-card transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5"
+                href={`#${project.link}`}
+                className="overflow-hidden rounded-lg border border-border hover-lift cursor-pointer group bg-card transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 block"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="aspect-[4/3] overflow-hidden relative">
@@ -127,7 +131,7 @@ const HomePage = () => {
                   <p className="text-sm text-primary font-medium mb-2">{project.category}</p>
                   <h3 className="text-xl group-hover:text-primary transition-colors">{project.title}</h3>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
 
